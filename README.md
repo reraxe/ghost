@@ -4,6 +4,7 @@ Only available on https://github.com/reraxe/ghost/tree/master/5/debian
 * Dockerfile
 * env-entrypoint
 * env.php
+* Docker build
 
 # https://github.com/docker-library/ghost
 
