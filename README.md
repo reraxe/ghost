@@ -1,3 +1,10 @@
+# Docker Official Image packaging for Ghost with Docker Secrets - reraxe version
+
+Only available on https://github.com/reraxe/ghost/tree/master/5/debian
+* Dockerfile
+* env-entrypoint
+* env.php
+
 # https://github.com/docker-library/ghost
 
 ## Maintained by: [the Docker Community](https://github.com/docker-library/ghost)
