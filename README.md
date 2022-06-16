@@ -1,10 +1,14 @@
 # Docker Official Image packaging for Ghost with Docker Secrets - reraxe version
 
 Only available on https://github.com/reraxe/ghost/tree/master/5/debian
-* Dockerfile
-* env-entrypoint
-* env.php
+* Dockerfile: Add `COPY`, `RUN`, `ENTRYPOINT`
+* env.php: Add secrets: `ENV`
+* ghostenv-entrypoint: `file_env`
 * Docker build
+```sh
+docker build -t yourimage:latest .
+docker push yourimage:latest
+```
 
 # https://github.com/docker-library/ghost
 
