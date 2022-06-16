@@ -2,7 +2,7 @@
 
 Only available on https://github.com/reraxe/ghost/tree/master/5/debian
 * Dockerfile: Add `COPY`, `RUN`, `ENTRYPOINT`
-* env.php: Add secrets: `ENV`
+* ghostenv.php: Add secrets: `ENV`
 * ghostenv-entrypoint: `file_env`
 * Docker build
 ```sh
