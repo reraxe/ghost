@@ -24,6 +24,7 @@ file_env() {
 file_env "database__connection__database"
 file_env "database__connection__user"
 file_env "database__connection__password"
+file_env "mail__options__auth__pass"
 
 # first arg is `-f` or `--some-option`
 if [ "${1#-}" != "$1" ]; then
