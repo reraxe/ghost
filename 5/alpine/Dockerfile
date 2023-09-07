@@ -1,7 +1,6 @@
 # https://docs.ghost.org/faq/node-versions/
 # https://github.com/nodejs/Release (looking for "LTS")
-# https://github.com/TryGhost/Ghost/blob/v5.0.0/package.json#L54
-FROM node:16-alpine3.17
+FROM node:18-alpine3.17
 
 # grab su-exec for easy step-down from root
 RUN apk add --no-cache 'su-exec>=0.2'
@@ -20,7 +19,7 @@ RUN set -eux; \
 ENV GHOST_INSTALL /var/lib/ghost
 ENV GHOST_CONTENT /var/lib/ghost/content
 
-ENV GHOST_VERSION 5.60.0
+ENV GHOST_VERSION 5.61.3
 
 RUN set -eux; \
 	mkdir -p "$GHOST_INSTALL"; \
