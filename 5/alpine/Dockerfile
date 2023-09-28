@@ -19,7 +19,7 @@ RUN set -eux; \
 ENV GHOST_INSTALL /var/lib/ghost
 ENV GHOST_CONTENT /var/lib/ghost/content
 
-ENV GHOST_VERSION 5.65.0
+ENV GHOST_VERSION 5.65.1
 
 RUN set -eux; \
 	mkdir -p "$GHOST_INSTALL"; \
@@ -31,7 +31,7 @@ RUN set -eux; \
 	if ! eval "$installCmd"; then \
 		virtual='.build-deps-ghost'; \
 		apkDel="$apkDel $virtual"; \
-		apk add --no-cache --virtual "$virtual" g++ make python3; \
+		apk add --no-cache --virtual "$virtual" g++ linux-headers make python3; \
 		eval "$installCmd"; \
 	fi; \
 	\
