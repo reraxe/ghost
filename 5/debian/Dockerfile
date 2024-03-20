@@ -35,7 +35,7 @@ RUN set -eux; \
 
 ENV NODE_ENV production
 
-ENV GHOST_CLI_VERSION 1.25.3
+ENV GHOST_CLI_VERSION 1.26.0
 RUN set -eux; \
 	npm install -g "ghost-cli@$GHOST_CLI_VERSION"; \
 	npm cache clean --force
@@ -43,7 +43,7 @@ RUN set -eux; \
 ENV GHOST_INSTALL /var/lib/ghost
 ENV GHOST_CONTENT /var/lib/ghost/content
 
-ENV GHOST_VERSION 5.80.2
+ENV GHOST_VERSION 5.80.4
 
 RUN set -eux; \
 	mkdir -p "$GHOST_INSTALL"; \
