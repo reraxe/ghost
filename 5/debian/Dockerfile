@@ -4,7 +4,7 @@ FROM node:18-bookworm-slim
 
 # grab gosu for easy step-down from root
 # https://github.com/tianon/gosu/releases
-ENV GOSU_VERSION 1.16
+ENV GOSU_VERSION 1.17
 RUN set -eux; \
 # save list of currently installed packages for later so we can clean up
 	savedAptMark="$(apt-mark showmanual)"; \
@@ -43,7 +43,7 @@ RUN set -eux; \
 ENV GHOST_INSTALL /var/lib/ghost
 ENV GHOST_CONTENT /var/lib/ghost/content
 
-ENV GHOST_VERSION 5.86.0
+ENV GHOST_VERSION 5.86.2
 
 RUN set -eux; \
 	mkdir -p "$GHOST_INSTALL"; \
