@@ -1,6 +1,6 @@
 # https://docs.ghost.org/faq/node-versions/
 # https://github.com/nodejs/Release (looking for "LTS")
-FROM node:18-alpine3.19
+FROM node:18-alpine3.20
 
 RUN apk add --no-cache \
 # add "bash" for "[["
@@ -47,7 +47,7 @@ RUN set -eux; \
 ENV GHOST_INSTALL /var/lib/ghost
 ENV GHOST_CONTENT /var/lib/ghost/content
 
-ENV GHOST_VERSION 5.104.0
+ENV GHOST_VERSION 5.104.2
 
 RUN set -eux; \
 	mkdir -p "$GHOST_INSTALL"; \
