@@ -1,6 +1,6 @@
 # https://docs.ghost.org/faq/node-versions/
 # https://github.com/nodejs/Release (looking for "LTS")
-FROM node:18-bookworm-slim
+FROM node:20-bookworm-slim
 
 # grab gosu for easy step-down from root
 # https://github.com/tianon/gosu/releases
@@ -43,7 +43,7 @@ RUN set -eux; \
 ENV GHOST_INSTALL /var/lib/ghost
 ENV GHOST_CONTENT /var/lib/ghost/content
 
-ENV GHOST_VERSION 5.120.2
+ENV GHOST_VERSION 5.121.0
 
 RUN set -eux; \
 	mkdir -p "$GHOST_INSTALL"; \
