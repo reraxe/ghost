@@ -1,6 +1,6 @@
 # https://docs.ghost.org/faq/node-versions/
 # https://github.com/nodejs/Release (looking for "LTS")
-FROM node:20-alpine3.22
+FROM node:22-alpine3.22
 
 RUN apk add --no-cache \
 # add "bash" for "[["
@@ -47,7 +47,7 @@ RUN set -eux; \
 ENV GHOST_INSTALL /var/lib/ghost
 ENV GHOST_CONTENT /var/lib/ghost/content
 
-ENV GHOST_VERSION 5.130.1
+ENV GHOST_VERSION 6.0.0-alpha.1
 
 RUN set -eux; \
 	mkdir -p "$GHOST_INSTALL"; \
@@ -56,6 +56,7 @@ RUN set -eux; \
 	apkDel=; \
 	\
 	installCmd='gosu node ghost install "$GHOST_VERSION" --db mysql --dbhost mysql --no-prompt --no-stack --no-setup --dir "$GHOST_INSTALL"'; \
+	case "$GHOST_VERSION" in *-alpha* | *-beta* | *-rc*) installCmd="$installCmd --channel next" ;; esac; \
 	if ! eval "$installCmd"; then \
 		virtual='.build-deps-ghost'; \
 		apkDel="$apkDel $virtual"; \
