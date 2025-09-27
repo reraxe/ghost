@@ -8,7 +8,7 @@ RUN apk add --no-cache \
 
 # grab gosu for easy step-down from root
 # https://github.com/tianon/gosu/releases
-ENV GOSU_VERSION 1.18
+ENV GOSU_VERSION 1.19
 RUN set -eux; \
 	\
 	apk add --no-cache --virtual .gosu-deps \
@@ -47,7 +47,7 @@ RUN set -eux; \
 ENV GHOST_INSTALL /var/lib/ghost
 ENV GHOST_CONTENT /var/lib/ghost/content
 
-ENV GHOST_VERSION 6.0.9
+ENV GHOST_VERSION 6.0.10
 
 RUN set -eux; \
 	mkdir -p "$GHOST_INSTALL"; \
