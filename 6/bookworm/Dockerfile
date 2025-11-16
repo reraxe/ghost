@@ -91,8 +91,13 @@ RUN set -eux; \
 WORKDIR $GHOST_INSTALL
 VOLUME $GHOST_CONTENT
 
-COPY docker-entrypoint.sh /usr/local/bin/
-ENTRYPOINT ["docker-entrypoint.sh"]
+COPY ghostenv.php /var/www/html/ghostenv.php
+COPY ghostenv-entrypoint /usr/local/bin/ghostenv-entrypoint
+
+RUN chmod +x /usr/local/bin/ghostenv-entrypoint
+
+COPY docker-entrypoint.sh /usr/local/bin
+ENTRYPOINT ["docker-entrypoint.sh", "ghostenv-entrypoint"]
 
 EXPOSE 2368
 CMD ["node", "current/index.js"]
