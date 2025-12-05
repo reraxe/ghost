@@ -4,7 +4,7 @@
 # PLEASE DO NOT EDIT IT DIRECTLY.
 #
 
-FROM node:22-alpine3.22
+FROM node:22-alpine3.23
 
 RUN apk add --no-cache \
 # add "bash" for "[["
@@ -50,7 +50,7 @@ RUN set -eux; \
 ENV GHOST_INSTALL /var/lib/ghost
 ENV GHOST_CONTENT /var/lib/ghost/content
 
-ENV GHOST_VERSION 6.9.3
+ENV GHOST_VERSION 6.10.0
 
 RUN set -eux; \
 	mkdir -p "$GHOST_INSTALL"; \

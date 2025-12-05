@@ -4,7 +4,7 @@
 # PLEASE DO NOT EDIT IT DIRECTLY.
 #
 
-FROM node:20-alpine3.22
+FROM node:20-alpine3.23
 
 RUN apk add --no-cache \
 # add "bash" for "[["
