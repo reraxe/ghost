@@ -39,11 +39,10 @@ RUN set -eux; \
 # verify that the binary works
 	gosu --version; \
 	gosu nobody true
-RUN set -eux; ln -svf gosu /usr/local/bin/su-exec; su-exec nobody true # backwards compatibility
 
 ENV NODE_ENV production
 
-ENV GHOST_CLI_VERSION 1.28.3
+ENV GHOST_CLI_VERSION 1.28.4
 RUN set -eux; \
 	npm install -g "ghost-cli@$GHOST_CLI_VERSION"; \
 	npm cache clean --force
@@ -51,7 +50,7 @@ RUN set -eux; \
 ENV GHOST_INSTALL /var/lib/ghost
 ENV GHOST_CONTENT /var/lib/ghost/content
 
-ENV GHOST_VERSION 5.130.5
+ENV GHOST_VERSION 5.130.6
 
 RUN set -eux; \
 	mkdir -p "$GHOST_INSTALL"; \
