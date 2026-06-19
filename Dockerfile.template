@@ -64,6 +64,7 @@ ENV NODE_ENV production
 
 ENV GHOST_CLI_VERSION {{ .cli.version }}
 RUN set -eux; \
+	corepack enable; \
 	npm install -g "ghost-cli@$GHOST_CLI_VERSION"; \
 	npm cache clean --force
 
@@ -110,14 +111,13 @@ RUN set -eux; \
 	{{ clean_apt }}; \
 {{ ) end -}}
 	\
-	gosu node yarn cache clean; \
+	gosu node pnpm store prune; \
 	gosu node npm cache clean --force; \
 	npm cache clean --force; \
-	rm -rv /tmp/yarn* /tmp/v8*; \
 	\
 	# test that the optional dependencies are installed and loadable
 	cd current; \
-	gosu node node -e 'require("sqlite3"); require("sharp");'
+	gosu node node -e 'require("sqlite3"); if (!require("@tryghost/image-transform").canTransformFiles()) throw new Error("sharp not installed");'
 
 WORKDIR $GHOST_INSTALL
 VOLUME $GHOST_CONTENT
